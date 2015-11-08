@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "QuizViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.viewController = [[QuizViewController alloc] initWithNibName:@"QuizViewController" bundle:nil];
+    self.window.rootViewController = self.viewController;
+    NSLog(@"window bounds: %f, %f", self.window.bounds.size.width, self.window.bounds.size.width);
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
